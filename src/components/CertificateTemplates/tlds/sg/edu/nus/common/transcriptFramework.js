@@ -261,13 +261,9 @@ class TranscriptPage extends Component {
 
   // main render
   render() {
-    // cannot put background image into css file because loading image may fail
-    const backgroundImg = this.props.backImgUrl
-      ? { backgroundImage: this.props.backImgUrl }
-      : {};
     const idx = this.props.pageIdx;
     const html = (
-      <div className={cls("a4-landscape ts-background")} style={backgroundImg}>
+      <div className={cls("a4-landscape")} style={this.props.background}>
         <header key="ts-header">
           <TranscriptHeader headerData={this.props.headerData} />
         </header>
@@ -315,7 +311,7 @@ TranscriptPage.propTypes = {
   rowsPerCol: PropTypes.number.isRequired,
   pageIdx: PropTypes.number.isRequired,
   headerData: PropTypes.object.isRequired,
-  backImgUrl: PropTypes.string
+  background: PropTypes.object
 };
 
 // transcript data row
@@ -521,7 +517,7 @@ export class Transcript extends Component {
         pageIdx={idx}
         rowsPerCol={this.maxRows}
         headerData={this.feeder.headerData}
-        backImgUrl={this.props.backImgUrl}
+        background={this.props.background}
       />
     );
     return html;
@@ -554,7 +550,7 @@ Transcript.propTypes = {
   maxPages: PropTypes.string,
   maxRows: PropTypes.string,
   dataFeeder: PropTypes.object,
-  backImgUrl: PropTypes.string,
+  background: PropTypes.object,
   legendPage: PropTypes.string,
   legendRatio: PropTypes.string
 };

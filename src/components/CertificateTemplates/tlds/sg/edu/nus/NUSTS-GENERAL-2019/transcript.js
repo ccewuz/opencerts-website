@@ -1292,13 +1292,20 @@ const Template = ({ certificate }) => {
   if (isDuke) legend = NUS_TS_LEGEND_DUKE;
   else if (isYaleNUS) legend = NUS_TS_LEGEND_YALE;
   else legend = NUS_TS_LEGEND;
+  const backImgUrl = `url(${isYaleNUS ? NUS_TS_BACKIMG_YALE : NUS_TS_BACKIMG})`;
+  const backgroundImg = {
+    backgroundImage: backImgUrl,
+    backgroundSize: "1140px 806px", // width height
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "center top" // horizontal vertical
+  };
   const html = (
     <div style={scale}>
       <Transcript
         maxPages="8"
         maxRows="50"
         dataFeeder={dataFeeder}
-        backImgUrl={`url(${isYaleNUS ? NUS_TS_BACKIMG_YALE : NUS_TS_BACKIMG})`}
+        background={backgroundImg}
         legendPage={legend}
         legendRatio="0.95"
       />

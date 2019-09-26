@@ -254,21 +254,7 @@ class Degree extends Component {
         <tbody>
           <tr>
             <td width="20%">
-              <table width="100%">
-                <tbody>
-                  <tr>
-                    <td className={cls("cert-td1")}>Duke</td>
-                  </tr>
-                  <tr>
-                    <td className={cls("cert-td11")}>UNIVERSITY</td>
-                  </tr>
-                  <tr>
-                    <td className={cls("cert-td2")}>
-                      <img src={DUKE_LOGO} className={cls("cert-duke")} />
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+              <img src={DUKE_LOGO} className={cls("cert-duke")} />
             </td>
             <td className={cls("cert-td3")}>
               <div className={cls("cert-td31")}>

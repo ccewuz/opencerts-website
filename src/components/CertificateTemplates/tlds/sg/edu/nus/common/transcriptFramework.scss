@@ -40,7 +40,7 @@ $debug: false;
     .header-unoff {
         font-size: 18pt; 
         text-align: center; 
-        padding: 40px;
+        padding: 45px;
     }
     
     .header-pers-info { 
@@ -172,11 +172,5 @@ $debug: false;
         overflow-x: hidden; 
         overflow-y: hidden; 
         box-sizing: border-box; 
-    }
-
-    .ts-background { 
-        background-size: 24.04cm 17cm; /* width height */
-        background-repeat: no-repeat;
-        background-position: center top; /* horizontal vertical */
     }
 }
