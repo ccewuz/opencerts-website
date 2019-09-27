@@ -109,7 +109,7 @@ const getDataFeeder = dataSource => {
   const dataFeeder = new DegreeScrollDataFeeder();
   dataFeeder.logo = renderLogos();
   dataFeeder.studentName = dataSource.recipient.name;
-  dataFeeder.namePadding = "10px 0";
+  dataFeeder.namePadding = "15px 0 10px";
   dataFeeder.postNameText =
     "having completed the requirements for\nthe Joint Degree Programme of\nthe National University of Singapore and\nthe Shanghai Jiao Tong University was\nconferred the degree of";
   dataFeeder.degreeCode = dataSource.additionalData.degreeScroll[0].degreeCode;

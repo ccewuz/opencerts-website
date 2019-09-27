@@ -136,7 +136,7 @@ const getDataFeeder = dataSource => {
   const dataFeeder = new DegreeScrollDataFeeder();
   dataFeeder.logo = renderLogos();
   dataFeeder.studentName = dataSource.recipient.name.toUpperCase();
-  dataFeeder.namePadding = "20px 0";
+  dataFeeder.namePadding = "20px 0 15px";
   dataFeeder.postNameText =
     "having completed the requirements prescribed\nfor the Joint Programme of the National\nUniversity of Singapore and the Maritime & Port\nManagement of Singapore was awarded the";
   dataFeeder.degreeCode = dataSource.additionalData.degreeScroll[0].degreeCode;

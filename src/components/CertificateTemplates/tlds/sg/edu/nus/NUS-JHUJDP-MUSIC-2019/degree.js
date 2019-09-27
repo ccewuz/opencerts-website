@@ -18,7 +18,7 @@ const renderLogos = () => {
     <table width="100%">
       <tbody>
         <tr>
-          <td>{renderVoid("1.2cm")}</td>
+          <td>{renderVoid("1cm")}</td>
         </tr>
         <tr>
           <td width="50%">{renderSmallNUSLogo()}</td>
@@ -111,7 +111,7 @@ const getDataFeeder = dataSource => {
   const dataFeeder = new DegreeScrollDataFeeder();
   dataFeeder.logo = renderLogos();
   dataFeeder.studentName = dataSource.recipient.name.toUpperCase();
-  dataFeeder.namePadding = "10px 0";
+  dataFeeder.namePadding = "15px 0 5px";
   dataFeeder.postNameText =
     "having fulfilled the requirements for\nthe Joint Degree Programme prescribed by\nthe Yong Siew Toh Conservatory of Music,\nNational University of Singapore, and\nThe Peabody Conservatory of Music of\nThe Johns Hopkins University,\nwas conferred the degree of";
   dataFeeder.degreeCode = dataSource.additionalData.degreeScroll[0].degreeCode;

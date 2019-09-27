@@ -51,7 +51,7 @@ const getDataFeeder = dataSource => {
   const dataFeeder = new DegreeScrollDataFeeder();
   dataFeeder.logo = renderLogo();
   dataFeeder.studentName = dataSource.recipient.name.toUpperCase();
-  dataFeeder.namePadding = "20px 0";
+  dataFeeder.namePadding = "20px 0 15px";
   // text is default
   dataFeeder.degreeCode = dataSource.additionalData.degreeScroll[0].degreeCode;
   // this template (K4MBACN) is only for MBA conducted in Chinese, hence directly allocate the literal degree title

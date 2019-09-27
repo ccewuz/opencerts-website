@@ -21,7 +21,7 @@ const cls = names => sassClassNames(names, scss);
 // not necessary to be exported
 const renderDefaultNUSLogo = () => (
   <Fragment>
-    {renderVoid("2.13cm")}
+    {renderVoid("1.9cm")}
     {renderNUSTitle()}
     {renderVoid("0.59cm")}
     {renderNUSLogo()}
@@ -333,6 +333,7 @@ const preprocMajor = major =>
 //   - Text above student name: use preNameText, value to be a string
 //   - Text below student name: use postNameText, value to be a string
 //   - Fully customised student name + pre-/post- name text: use nameAndText, value to be HTML
+//   - Space before rendering of degree title: use spaceBeforeDegree, value to be "num + unit"
 //   - Degree code: use degreeCode, value to be a string. This is not to rendered on the degree scroll, but used to determine rendering of other content
 //   - Degree title: use degreeTitle, value to be a string
 //   - Honours: use honours, value to be a string
@@ -346,12 +347,13 @@ const preprocMajor = major =>
 export class DegreeScrollDataFeeder {
   constructor() {
     this.dsLogo = [];
-    this.dsSpaceAfterLogo = null; // default
+    this.dsSpaceAfterLogo = ".23cm"; // default, height
     this.dsName = null;
-    this.dsNamePadding = "20px 0"; // default
+    this.dsNamePadding = "20px 0 15px"; // default, top, left & right, bottom
     this.dsPreNameText = "This is to certify that"; // default
     this.dsPostNameText =
-      "having fulfilled the requirements prescribed\nby the University was conferred the degrees of"; // default
+      "having fulfilled the requirements prescribed\nby the University was conferred the degree of"; // default
+    this.dsSpaceBeforeDegree = "5px"; // default, height
     this.dsDegreeCode = null;
     this.dsDegreeTitle = null;
     this.dsHonours = null;
@@ -404,6 +406,11 @@ export class DegreeScrollDataFeeder {
   // setter: custom name and text with style
   set nameAndText(value) {
     this.dsCustomNameAndText = value;
+  }
+
+  // setter: space before rendering of degree title
+  set spaceBeforeDegree(value) {
+    this.dsSpaceBeforeDegree = value;
   }
 
   // setter: degree code
@@ -496,6 +503,12 @@ export class DegreeScrollDataFeeder {
       this.dsPostNameText,
       this.dsNamePadding
     );
+  }
+
+  // render spacing before degree title
+  get spaceBeforeDegree() {
+    if (this.dsSpaceBeforeDegree) return renderVoid(this.dsSpaceBeforeDegree);
+    return "";
   }
 
   // render degree title, honours (if any) and major (if any)
@@ -639,6 +652,9 @@ export class Degree extends Component {
               </tr>
               <tr>
                 <td>{this.dataFeeder.nameAndText}</td>
+              </tr>
+              <tr>
+                <td>{this.dataFeeder.spaceBeforeDegree}</td>
               </tr>
               <tr>
                 <td style={{ height: this.dataFeeder.heightTitleDisplay }}>

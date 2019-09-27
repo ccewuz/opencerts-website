@@ -25,7 +25,7 @@ const renderLogos = () => {
     <table width="100%">
       <tbody>
         <tr>
-          <td>{renderVoid("1.27cm")}</td>
+          <td>{renderVoid("1cm")}</td>
         </tr>
         <tr>
           <td width="25%">{renderSmallNUSLogo()}</td>
@@ -206,10 +206,10 @@ const getDataFeeder = dataSource => {
     dataSource.additionalData.degreeScroll[0].degreeTitle;
   dataFeeder.honours = dataSource.additionalData.degreeScroll[0].honours;
   dataFeeder.major = dataSource.additionalData.degreeScroll[0].major;
-  dataFeeder.heightTitleDisplay = "2cm";
+  dataFeeder.heightTitleDisplay = "1.8cm";
   dataFeeder.conferDate =
     dataSource.additionalData.degreeScroll[0].dateConferred;
-  dataFeeder.spaceBeforeSig = ".5cm";
+  dataFeeder.spaceBeforeSig = ".3cm";
   dataFeeder.sig = renderSigs(dataSource);
   return dataFeeder;
 };

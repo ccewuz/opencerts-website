@@ -28,7 +28,7 @@ const renderLogos = () => {
     <table width="100%">
       <tbody>
         <tr>
-          <td>{renderVoid("1.27cm")}</td>
+          <td>{renderVoid("1cm")}</td>
         </tr>
         <tr>
           <td width="50%">{renderSmallNUSLogo()}</td>
@@ -151,9 +151,10 @@ const getDataFeeder = dataSource => {
   const dataFeeder = new DegreeScrollDataFeeder();
   dataFeeder.logo = renderLogos();
   dataFeeder.studentName = dataSource.recipient.name.toUpperCase();
-  dataFeeder.namePadding = "20px 0";
+  dataFeeder.namePadding = "20px 0 15px";
   dataFeeder.postNameText =
     "having completed the requirements for the\nJoint Degree Programme of the National\nUniversity of Singapore and the Technical\nUniversity of Denmark was conferred the degree of";
+  dataFeeder.spaceBeforeDegree = "10px";
   dataFeeder.degreeCode = dataSource.additionalData.degreeScroll[0].degreeCode;
   dataFeeder.degreeTitle =
     dataSource.additionalData.degreeScroll[0].degreeTitle;
@@ -162,7 +163,7 @@ const getDataFeeder = dataSource => {
   dataFeeder.heightTitleDisplay = "2cm";
   dataFeeder.conferDate =
     dataSource.additionalData.degreeScroll[0].dateConferred;
-  dataFeeder.spaceBeforeSig = "1cm";
+  dataFeeder.spaceBeforeSig = ".5cm";
   dataFeeder.sig = renderSigs(dataSource);
   return dataFeeder;
 };

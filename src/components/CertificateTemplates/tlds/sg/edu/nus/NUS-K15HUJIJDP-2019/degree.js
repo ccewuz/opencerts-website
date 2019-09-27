@@ -145,7 +145,7 @@ const getDataFeeder = dataSource => {
   const dataFeeder = new DegreeScrollDataFeeder();
   dataFeeder.logo = renderLogos();
   dataFeeder.studentName = dataSource.recipient.name.toUpperCase();
-  dataFeeder.namePadding = "10px 0";
+  dataFeeder.namePadding = "15px 0 10px";
   dataFeeder.postNameText =
     "having completed the requirements for the Joint Degree\nProgramme of the National University of Singapore and\nThe Hebrew University of Jerusalem,\nwas conferred the degree of";
   dataFeeder.degreeCode = dataSource.additionalData.degreeScroll[0].degreeCode;

@@ -151,7 +151,7 @@ const getDataFeeder = dataSource => {
   const dataFeeder = new DegreeScrollDataFeeder();
   dataFeeder.logo = renderLogos(homeUnivIsNUS);
   dataFeeder.studentName = dataSource.recipient.name.toUpperCase();
-  dataFeeder.namePadding = "10px 0";
+  dataFeeder.namePadding = "15px 0 10px";
   dataFeeder.postNameText = homeUnivIsNUS
     ? "having completed the requirements for\nthe Joint Degree Programme of the\nNational University of Singapore and\nKing's College London,\nwas conferred the degree of"
     : "having completed the requirements for\nthe Joint Degree Programme of\nKing's College London and the\nNational University of Singapore,\nwas conferred the degree of";
