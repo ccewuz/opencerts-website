@@ -18,9 +18,6 @@ const renderLogos = () => {
     <table width="100%">
       <tbody>
         <tr>
-          <td>{renderVoid("1.2cm")}</td>
-        </tr>
-        <tr>
           <td width="50%">{renderSmallNUSLogo()}</td>
           <td width="50%" align="center" valign="top">
             <img src={UOE_LOGO} style={styleLogo} />

@@ -25,9 +25,6 @@ const renderLogos = () => {
     <table width="100%">
       <tbody>
         <tr>
-          <td>{renderVoid("1cm")}</td>
-        </tr>
-        <tr>
           <td width="25%">{renderSmallNUSLogo()}</td>
           <td>
             <img src={ICL_LOGO} style={styleLogo} />
@@ -197,6 +194,7 @@ const renderSigs = dataSource => {
 const getDataFeeder = dataSource => {
   // data feeder
   const dataFeeder = new DegreeScrollDataFeeder();
+  dataFeeder.spaceBeforeLogo = "1cm";
   dataFeeder.logo = renderLogos();
   dataFeeder.nameAndText = renderNameAndText(
     dataSource.recipient.name.toUpperCase()

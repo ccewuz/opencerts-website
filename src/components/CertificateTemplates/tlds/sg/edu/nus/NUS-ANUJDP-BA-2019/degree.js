@@ -31,9 +31,6 @@ const renderLogos = () => {
     <table width="100%">
       <tbody>
         <tr>
-          <td>{renderVoid("1cm")}</td>
-        </tr>
-        <tr>
           <td width="50%">{renderSmallNUSLogo()}</td>
           <td width="50%" align="center">
             <div style={styleHeader}>
@@ -160,6 +157,7 @@ const renderSigs = dataSource => {
 const getDataFeeder = dataSource => {
   // data feeder
   const dataFeeder = new DegreeScrollDataFeeder();
+  dataFeeder.spaceBeforeLogo = "1cm";
   dataFeeder.logo = renderLogos();
   dataFeeder.studentName = dataSource.recipient.name.toUpperCase();
   dataFeeder.namePadding = "10px 0 5px";

@@ -25,9 +25,6 @@ const renderLogos = homeUnivIsNUS => {
     <table width="100%">
       <tbody>
         <tr>
-          <td>{renderVoid("1.2cm")}</td>
-        </tr>
-        <tr>
           <td width="50%" align="center">
             {homeUnivIsNUS ? renderSmallNUSLogo() : kclLogo}
           </td>

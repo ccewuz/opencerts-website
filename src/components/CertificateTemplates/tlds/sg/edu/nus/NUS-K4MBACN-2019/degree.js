@@ -38,7 +38,6 @@ const renderCustomNUSTitle = () => {
 // custom logo
 const renderLogo = () => (
   <Fragment>
-    {renderVoid("2.13cm")}
     {renderCustomNUSTitle()}
     {renderVoid("0.59cm")}
     {renderNUSLogo()}

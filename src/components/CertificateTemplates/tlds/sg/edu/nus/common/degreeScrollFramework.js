@@ -21,7 +21,6 @@ const cls = names => sassClassNames(names, scss);
 // not necessary to be exported
 const renderDefaultNUSLogo = () => (
   <Fragment>
-    {renderVoid("1.9cm")}
     {renderNUSTitle()}
     {renderVoid("0.59cm")}
     {renderNUSLogo()}
@@ -326,6 +325,7 @@ const preprocMajor = major =>
 
 // degree scroll data feeder class
 // What can be customised:
+//   - Space above the logo: use spaceBeforeLogo, value to be "num + unit", e.g. 1.2cm
 //   - Logo(s): use addLogo or logo setter, value to be HTML
 //   - Space between logo and 1st line of text: use spaceAfterLogo, value to be "num + unit", e.g. 1cm
 //   - Student name: use studentName, value to be a string
@@ -347,6 +347,7 @@ const preprocMajor = major =>
 export class DegreeScrollDataFeeder {
   constructor() {
     this.dsLogo = [];
+    this.dsSpaceBeforeLogo = "1.2cm"; // default, height
     this.dsSpaceAfterLogo = ".23cm"; // default, height
     this.dsName = null;
     this.dsNamePadding = "20px 0 15px"; // default, top, left & right, bottom
@@ -366,6 +367,11 @@ export class DegreeScrollDataFeeder {
     this.dsCustomLogo = null;
     this.dsCustomNameAndText = null;
     this.dsHeightTitleDisplay = "3.56cm"; // default
+  }
+
+  // setter: spacing before logo(s)
+  set spaceBeforeLogo(value) {
+    this.dsSpaceBeforeLogo = value;
   }
 
   // add logo
@@ -486,6 +492,12 @@ export class DegreeScrollDataFeeder {
         </tbody>
       </table>
     );
+  }
+
+  // render spacing before logo(s)
+  get spaceBeforeLogo() {
+    if (this.dsSpaceBeforeLogo) return renderVoid(this.dsSpaceBeforeLogo);
+    return "";
   }
 
   // render spacing after logo(s)
@@ -644,6 +656,9 @@ export class Degree extends Component {
         <article>
           <table width="100%">
             <tbody>
+              <tr>
+                <td>{this.dataFeeder.spaceBeforeLogo}</td>
+              </tr>
               <tr>
                 <td>{this.dataFeeder.logo}</td>
               </tr>

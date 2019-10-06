@@ -28,9 +28,6 @@ const renderLogos = () => {
     <table width="100%">
       <tbody>
         <tr>
-          <td>{renderVoid("1.27cm")}</td>
-        </tr>
-        <tr>
           <td width="50%">{renderSmallNUSLogo()}</td>
           <td width="50%">
             <div style={styleHeader}>

@@ -18,9 +18,6 @@ const renderLogos = () => {
     <table width="100%">
       <tbody>
         <tr>
-          <td>{renderVoid("1.2cm")}</td>
-        </tr>
-        <tr>
           <td width="30%">{renderSmallNUSLogo()}</td>
           <td width="70%" align="center" valign="top">
             <img src={SJTU_LOGO} style={styleLogo} />
@@ -107,8 +104,9 @@ const renderSigs = dataSource => {
 const getDataFeeder = dataSource => {
   // data feeder
   const dataFeeder = new DegreeScrollDataFeeder();
+  dataFeeder.spaceBeforeLogo = "1cm";
   dataFeeder.logo = renderLogos();
-  dataFeeder.studentName = dataSource.recipient.name;
+  dataFeeder.studentName = dataSource.recipient.name.toUpperCase();
   dataFeeder.namePadding = "15px 0 10px";
   dataFeeder.postNameText =
     "having completed the requirements for\nthe Joint Degree Programme of\nthe National University of Singapore and\nthe Shanghai Jiao Tong University was\nconferred the degree of";
