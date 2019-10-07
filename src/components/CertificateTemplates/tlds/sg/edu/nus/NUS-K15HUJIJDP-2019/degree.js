@@ -6,7 +6,7 @@ import {
   Degree,
   renderSmallNUSLogo
 } from "../common/degreeScrollFramework";
-import { renderNUSSeal, renderImage, renderVoid, HUJI_LOGO } from "../common";
+import { renderNUSSeal, renderImage, HUJI_LOGO } from "../common";
 
 // custom logos
 const renderLogos = () => {

@@ -57,35 +57,24 @@ class TranscriptProgram {
     this.dataFeeder.push(
       "ts-prog",
       <td colSpan="4">
-        <div className={cls("prog-row1 ts-title")}>
-          <div className={cls("prog-key prog-col0")}>PROGRAMME:</div>
-          <div className={cls("prog-col1")}>
-            {data.programName.toUpperCase()}
-          </div>
-        </div>
-      </td>
-    );
-    if (isDuke) {
-      // print DUKE school name under program name
-      this.dataFeeder.push(
-        "ts-prog",
-        <td colSpan="4">
-          <div className={cls("prog-row2 ts-title")}>
-            <div className={cls("prog-key prog-col0")} />
-            <div className={cls("prog-col1")}>DUKE-NUS MEDICAL SCHOOL</div>
-          </div>
-        </td>
-      );
-    }
-    this.dataFeeder.push(
-      "ts-prog",
-      <td colSpan="4">
-        <div className={cls("prog-row2 ts-title")}>
-          <div className={cls("prog-key prog-col0")}>PROGRAMME STATUS:</div>
-          <div className={cls("prog-col1")}>
-            {data.statusDescription.toUpperCase()}
-          </div>
-        </div>
+        <table width="100%">
+          <tr>
+            <td width="30%" valign="top" className={cls("ts-title prog-key")}>
+              PROGRAMME:
+            </td>
+            <td wdith="70%" valign="top" className={cls("ts-title")}>
+              {data.programName.toUpperCase()}
+              <br />
+              {isDuke ? "DUKE-NUS MEDICAL SCHOOL" : null}
+            </td>
+          </tr>
+          <tr>
+            <td className={cls("ts-title prog-key")}>PROGRAMME STATUS:</td>
+            <td className={cls("ts-title")}>
+              {data.statusDescription.toUpperCase()}
+            </td>
+          </tr>
+        </table>
       </td>
     );
   }
