@@ -300,28 +300,54 @@ const preprocHonours = (honours, degreeTitle) => {
   if (/^Honours/i.test(text)) return `with ${text}`;
   // 'pass with merit'
   if (
-    text.toUpperCase() === "PASS WITH MERIT" &&
-    (degreeTitle.toUpperCase() === "Bachelor of Science".toUpperCase() ||
-      degreeTitle.toUpperCase() ===
-        "Bachelor of Applied Science".toUpperCase() ||
-      degreeTitle.toUpperCase() ===
-        "Bachelor of Business Administration".toUpperCase() ||
-      degreeTitle.toUpperCase() ===
-        "Bachelor of Business Administration (Accountancy)".toUpperCase() ||
-      degreeTitle.toUpperCase() ===
-        "Bachelor of Science (Nursing)".toUpperCase())
+    (text.toUpperCase() === "PASS WITH MERIT" &&
+      (degreeTitle.toUpperCase() === "Bachelor of Science".toUpperCase() ||
+        degreeTitle.toUpperCase() ===
+          "Bachelor of Applied Science".toUpperCase() ||
+        degreeTitle.toUpperCase() ===
+          "Bachelor of Science (Computational Biology)".toUpperCase() ||
+        degreeTitle.toUpperCase() ===
+          "Bachelor of Science (Business Analytics)".toUpperCase() ||
+        degreeTitle.toUpperCase() ===
+          "Bachelor of Business Administration".toUpperCase() ||
+        degreeTitle.toUpperCase() ===
+          "Bachelor of Business Administration (Accountancy)".toUpperCase() ||
+        degreeTitle.toUpperCase() ===
+          "Bachelor of Science (Nursing)".toUpperCase())) ||
+    degreeTitle.toUpperCase() === "Bachelor of Technology".toUpperCase() ||
+    degreeTitle.toUpperCase() ===
+      "Bachelor of Engineering (Computer Engineering)".toUpperCase() ||
+    degreeTitle.toUpperCase() ===
+      "Bachelor of Arts (Architecture)".toUpperCase() ||
+    degreeTitle.toUpperCase() ===
+      "Bachelor of Arts (Industrial Design)".toUpperCase() ||
+    degreeTitle.toUpperCase() ===
+      "Bachelor of Science (Building)".toUpperCase() ||
+    degreeTitle.toUpperCase() ===
+      "Bachelor of Science (Project and Facilities Management)".toUpperCase() ||
+    degreeTitle.toUpperCase() ===
+      "Bachelor of Science (Real Estate)".toUpperCase()
   )
     return "with Merit";
   return text;
 };
 
 // pre-process major - removal of trailing (Hons) or Hons, and capitalization
-const preprocMajor = major =>
-  major
+const preprocMajor = (rawMajor, degreeCode) => {
+  // do not print major for Bachelor of Laws
+  if (degreeCode === "B071000") return "";
+  let major = rawMajor
     ? `in ${capitalizedText(
-        major.replace(/( \(HONS\)| HONS)$/i, "").toLowerCase()
+        rawMajor.replace(/( \(HONS\)| HONS)$/i, "").toLowerCase()
       )}`
     : "";
+  if (major.toUpperCase() === "ENGLISH LIT") major = "English Literature";
+  else if (major.toUpperCase() === "COMMS & NEW MEDIA")
+    major = "Communications & New Media";
+  else if (major.toUpperCase() === "FOOD SCIENCE & TECH")
+    major = "Food Science & Techlogy";
+  return major;
+};
 
 // degree scroll data feeder class
 // What can be customised:
@@ -526,7 +552,7 @@ export class DegreeScrollDataFeeder {
   // render degree title, honours (if any) and major (if any)
   get titleDisplay() {
     const honorsTitle = preprocHonours(this.dsHonours, this.dsDegreeTitle);
-    const majorTitle = preprocMajor(this.dsMajor);
+    const majorTitle = preprocMajor(this.dsMajor, this.dsDegreeCode);
     let ignoreHonours = false;
     let ignoreMajor = false;
     let lastLine;

@@ -45,7 +45,7 @@ class Degree extends Component {
     const html = (
       <div className={cls("cert-degree-title")}>
         {degreeTitleCase}
-        {honorsTitle ? ` Honours ${honorsTitle}` : ""}
+        {honorsTitle ? ` with Honours ${honorsTitle}` : ""}
         (NUS)
       </div>
     );
@@ -135,7 +135,7 @@ class Degree extends Component {
             <td>{renderVoid("0.5cm")}</td>
           </tr>
           <tr>
-            <td>has been conferred the degrees with all the rights, honors,</td>
+            <td>has been conferred the degree with all the rights, honors,</td>
           </tr>
           <tr>
             <td>responsibilities, and privileges pertaining thereunto.</td>
@@ -276,10 +276,11 @@ class Degree extends Component {
               style={{
                 border: "0px solid",
                 position: "relative",
-                marginLeft: "6.4cm"
+                marginLeft: "1cm",
+                marginRight: "1cm"
               }}
             >
-              {renderVoid("3cm")}
+              {renderVoid("1.5cm")}
               <div className={cls("cert-seal")}>{this.renderSeal()}</div>
               <table className={cls("cert-header-table")}>
                 <tbody>
@@ -306,7 +307,13 @@ class Degree extends Component {
               <div style={{ textAlign: "center" }}>{this.renderContent()}</div>
               {renderVoid("1cm")}
             </div>
-            <div style={{ border: "0px solid", marginLeft: "6.4cm" }}>
+            <div
+              style={{
+                border: "0px solid",
+                marginLeft: "1cm",
+                marginRight: "1cm"
+              }}
+            >
               {this.renderSigns()}
             </div>
           </article>

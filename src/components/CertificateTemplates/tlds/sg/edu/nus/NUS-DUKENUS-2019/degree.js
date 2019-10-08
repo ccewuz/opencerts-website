@@ -82,7 +82,7 @@ class Degree extends Component {
   renderContent() {
     const style1 = {
       width: "13.4cm",
-      height: "0.5cm",
+      height: "0.8cm",
       textAlign: "center",
       border: "0px solid"
     };
@@ -153,6 +153,12 @@ class Degree extends Component {
       sig4 = renderImage(dataSource.additionalData.images.TRUSTEES, 180, 60);
       sig5 = renderImage(dataSource.additionalData.images.PRESIDENT, 180, 60);
     }
+    const styleNUSSeal = {
+      display: "block",
+      marginTop: "5px",
+      marginLeft: "30px",
+      width: "4.25cm"
+    };
     const html = (
       <table width="100%">
         <tbody>
@@ -223,7 +229,7 @@ class Degree extends Component {
           <tr>
             <td>{this.renderDUKESeal()}</td>
             <td />
-            <td>{renderNUSSeal(cls("cert-nus-seal"))}</td>
+            <td>{renderNUSSeal(null, styleNUSSeal)}</td>
           </tr>
         </tbody>
       </table>
@@ -249,6 +255,14 @@ class Degree extends Component {
   };
 
   renderHeader = () => {
+    const styleNUSLogo = {
+      marginLeft: "auto",
+      marginRight: "auto",
+      display: "block",
+      width: "2.7cm",
+      height: "3.2cm",
+      textShadow: "1px 0 #888888"
+    };
     const html = (
       <table width="100%">
         <tbody>
@@ -292,7 +306,7 @@ class Degree extends Component {
                   </tr>
                   <tr>
                     <td>
-                      <div>{renderNUSLogo(cls("cert-nus"))}</div>
+                      <div>{renderNUSLogo(null, styleNUSLogo)}</div>
                     </td>
                   </tr>
                 </tbody>
@@ -316,7 +330,7 @@ class Degree extends Component {
               {this.renderHeader()}
               {this.renderContent()}
             </div>
-            <div style={{ margintop: "3cm" }}>
+            <div style={{ marginTop: "-.5cm" }}>
               {this.renderSigs(this.dataSource)}
             </div>
           </article>

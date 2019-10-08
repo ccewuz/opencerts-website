@@ -1,6 +1,6 @@
 import React from "react";
 import { tz } from "moment-timezone";
-import { toWordsOrdinal } from "number-to-words";
+import { toWordsOrdinal, toWords } from "number-to-words";
 import { NUS_LOGO } from "./imgNUSLogo";
 import { NUS_SEAL } from "./imgNUSSeal";
 
@@ -74,7 +74,7 @@ export const dateToWords = isoDate => {
   const dateValue = tz(isoDate, TIMEZONE);
   const day = toWordsOrdinal(dateValue.date()); // lower case
   const month = dateValue.format("MMMM");
-  const year = toWordsOrdinal(dateValue.year()).replace(",", " and ");
+  const year = toWords(dateValue.year()).replace(",", " and ");
   // return a date/month string and a year string;
   return {
     year,
