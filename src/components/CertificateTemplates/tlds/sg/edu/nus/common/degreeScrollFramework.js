@@ -345,7 +345,7 @@ const preprocMajor = (rawMajor, degreeCode) => {
   else if (major.toUpperCase() === "COMMS & NEW MEDIA")
     major = "Communications & New Media";
   else if (major.toUpperCase() === "FOOD SCIENCE & TECH")
-    major = "Food Science & Techlogy";
+    major = "Food Science & Technology";
   return major;
 };
 
