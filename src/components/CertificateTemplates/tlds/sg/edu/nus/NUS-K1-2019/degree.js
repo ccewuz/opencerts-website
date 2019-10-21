@@ -16,7 +16,7 @@ const getDataFeeder = dataSource => {
   const degreeTitle = dataSource.additionalData.degreeScroll[0].degreeTitle;
   if (/^Graduate Diploma/i.test(degreeTitle))
     dataFeeder.postNameText =
-      "having fulfilled the requirements prescribed\nby the University was conferred the";
+      "having fulfilled the requirements prescribed\nby the University was awarded the";
   dataFeeder.degreeCode = dataSource.additionalData.degreeScroll[0].degreeCode;
   dataFeeder.degreeTitle = degreeTitle;
   dataFeeder.honours = dataSource.additionalData.degreeScroll[0].honours;

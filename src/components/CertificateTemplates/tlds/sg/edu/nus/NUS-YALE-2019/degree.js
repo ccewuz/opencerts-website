@@ -68,7 +68,7 @@ class Degree extends Component {
   renderContent() {
     const degreeData = this.dataSource.additionalData.degreeScroll[0];
     const words = dateToWords(degreeData.dateConferred);
-    const dateConferred = `${words.dayMonth} ${words.year}`;
+    const dateConferred = `${words.dayMonth} in the year ${words.year}`;
 
     const html = (
       <table className={cls("cert-content-table")}>

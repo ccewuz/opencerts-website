@@ -6,7 +6,8 @@ import {
   sassClassNames,
   renderImage,
   renderVoid,
-  UNC_SEAL
+  UNC_SEAL,
+  NUS_SEAL
 } from "../common";
 import scss from "./degree.scss";
 
@@ -26,7 +27,7 @@ class Degree extends Component {
       const degreeTitleCase = capitalizedText(degreeTitle.toLowerCase());
       const html = (
         <div className={cls("cert-degree-title")}>
-          {degreeTitleCase} (UNC-Chapel Hill)
+          {degreeTitleCase} (UNC Chapel Hill)
         </div>
       );
       return html;
@@ -157,6 +158,8 @@ class Degree extends Component {
 
   renderSeal = () => <img src={UNC_SEAL} className={cls("cert-unc-seal")} />;
 
+  renderSeal1 = () => <img src={NUS_SEAL} className={cls("cert-unc-seal")} />;
+
   renderSigns = () => {
     let sig1;
     let sig2;
@@ -282,6 +285,7 @@ class Degree extends Component {
             >
               {renderVoid("1.5cm")}
               <div className={cls("cert-seal")}>{this.renderSeal()}</div>
+              <div className={cls("cert-seal-1")}>{this.renderSeal1()}</div>
               <table className={cls("cert-header-table")}>
                 <tbody>
                   <tr>
