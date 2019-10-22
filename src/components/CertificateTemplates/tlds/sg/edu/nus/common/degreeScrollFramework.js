@@ -119,7 +119,7 @@ const renderDefaultSigs = (trusteesSig, presidentSig) => {
           <td rowSpan="2" width="50%" style={{ textAlign: "center" }}>
             {renderNUSSeal()}
           </td>
-          <td align="center">
+          <td width="50%" align="center">
             <div className={cls("cert-sig")}>
               {sig1}
               <br />

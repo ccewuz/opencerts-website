@@ -87,11 +87,11 @@ $debug: false;
     
     .cert-sig {
         display: block;
-        width: 80%;
+        /* width: 80%; */
+        margin-right: 60pt;
         font-size: 12pt; 
         font-family: "Times New Roman", Serif; 
         font-style: italic;
-        /* color: rgb(83, 86, 90); */
         text-align: right;
         border: 0px solid;
     }
