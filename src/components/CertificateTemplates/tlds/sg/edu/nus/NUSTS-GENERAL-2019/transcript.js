@@ -322,7 +322,7 @@ class TranscriptCreditTransfer {
           "ts-term-trf-eqnus",
           <td colSpan="4" className={cls("ts-termrem")}>
             CREDITS TRANSFERRED (WITH EQUIVALENT NUS GRADE) FROM
-            {transferData.orgName.toUpperCase()}:
+            {` ${transferData.orgName.toUpperCase()}`}:
           </td>
         );
         transferData.details.forEach(detail => {
