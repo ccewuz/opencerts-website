@@ -47,7 +47,7 @@ class Degree extends Component {
       <div className={cls("cert-degree-title")}>
         {degreeTitleCase}
         {honorsTitle ? ` with ${honorsTitle}` : ""}
-        (NUS)
+        {" (NUS)"}
       </div>
     );
     return html;
