@@ -55,6 +55,14 @@ const constructPreNameText = degreeTitle => {
   return "This is to certify that";
 };
 
+// custom space before signature
+const getMarginTopOfSigs = degreeTitle => (
+  (degreeTitle.toUpperCase() === "Bachelor of Arts".toUpperCase() ||
+   degreeTitle.toUpperCase() === "Bachelor of Science".toUpperCase())
+  ?"-1cm"
+  :""
+);
+
 // custom post-name text
 const constructPostNameText = degreeTitle => {
   if (
@@ -97,57 +105,60 @@ const renderSigs = dataSource => {
       90
     );
   }
+  const marginTop = getMarginTopOfSigs(dataSource.additionalData.degreeScroll[0].degreeTitle);
   const html = (
-    <table style={styleSig}>
-      <tbody>
-        <tr>
-          <td width="5%" />
-          <td width="55%">{sig1}</td>
-          <td>{sig3}</td>
-        </tr>
-        <tr>
-          <td />
-          <td>
-            Chair, Board of Trustees
-            <br />
-            National University of Singapore
-          </td>
-          <td>
-            Chancellor
-            <br />
-            The Australian National University
-          </td>
-        </tr>
-        <tr>
-          <td />
-          <td>{sig2}</td>
-          <td>{sig4}</td>
-        </tr>
-        <tr>
-          <td />
-          <td>
-            President
-            <br />
-            National University of Singapore
-          </td>
-          <td>
-            Vice-Chancellor
-            <br />
-            The Australian National University
-          </td>
-        </tr>
-        <tr>
-          <td>{renderVoid("0.3cm")}</td>
-        </tr>
-        <tr>
-          <td />
-          <td>{renderNUSSeal()}</td>
-          <td>
-            <img src={ANU_SEAL} style={styleSeal} />;
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <div style={{marginTop}}>
+      <table style={styleSig}>
+        <tbody>
+          <tr>
+            <td width="5%" />
+            <td width="55%">{sig1}</td>
+            <td>{sig3}</td>
+          </tr>
+          <tr>
+            <td />
+            <td>
+              Chair, Board of Trustees
+              <br />
+              National University of Singapore
+            </td>
+            <td>
+              Chancellor
+              <br />
+              The Australian National University
+            </td>
+          </tr>
+          <tr>
+            <td />
+            <td>{sig2}</td>
+            <td>{sig4}</td>
+          </tr>
+          <tr>
+            <td />
+            <td>
+              President
+              <br />
+              National University of Singapore
+            </td>
+            <td>
+              Vice-Chancellor
+              <br />
+              The Australian National University
+            </td>
+          </tr>
+          <tr>
+            <td>{renderVoid("0.3cm")}</td>
+          </tr>
+          <tr>
+            <td />
+            <td>{renderNUSSeal()}</td>
+            <td>
+              <img src={ANU_SEAL} style={styleSeal} />;
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   );
 
   return html;
