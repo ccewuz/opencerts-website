@@ -248,7 +248,7 @@ class Degree extends Component {
     const html = (
       <Fragment>
         <div className={cls("cert-date")}>Given on {words.dayMonth},</div>
-        <div className={cls("cert-date")}>{words.year}</div>
+        <div className={cls("cert-date")}>{words.year}.</div>
       </Fragment>
     );
     return html;

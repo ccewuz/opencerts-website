@@ -86,7 +86,7 @@ const getDataFeeder = dataSource => {
   dataFeeder.studentName = dataSource.recipient.name.toUpperCase();
   dataFeeder.namePadding = "15px 0 10px";
   dataFeeder.postNameText =
-    "having completed the requirements for\nthe Joint Degree Programme of the National\nUniversity of Singapore and the University\nof Edinburgh was conferred the degree of";
+    "having completed the requirements for\nthe Joint Degree Programme of the National\nUniversity of Singapore and The University\nof Edinburgh was conferred the degree of";
   dataFeeder.degreeCode = dataSource.additionalData.degreeScroll[0].degreeCode;
   dataFeeder.degreeTitle =
     dataSource.additionalData.degreeScroll[0].degreeTitle;
