@@ -1286,7 +1286,7 @@ const Template = ({ certificate }) => {
     backgroundImage: backImgUrl,
     backgroundSize: "1140px 806px", // width height
     backgroundRepeat: "no-repeat",
-    backgroundPosition: "center top" // horizontal vertical
+    backgroundPosition: "center center" // horizontal vertical
   };
   const html = (
     <div style={scale}>
