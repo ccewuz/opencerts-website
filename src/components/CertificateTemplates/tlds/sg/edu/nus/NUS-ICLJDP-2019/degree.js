@@ -52,7 +52,8 @@ const renderNameAndText = name => {
     fontStyle: "italic",
     fontWeight: "bold",
     textAlign: "center",
-    padding: "10px 0"
+    padding: "10px 0",
+    lineHeight: "normal" 
   };
   return (
     <table width="100%">
@@ -76,7 +77,8 @@ const renderNameAndText = name => {
         </tr>
         <tr>
           <td>
-            <div style={style2}>{name}</div>
+            {/* must set this id for layout be adjusted for long name */}
+            <div id="nus-student-name" style={style2}>{name}</div>
           </td>
         </tr>
         <tr>

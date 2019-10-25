@@ -99,8 +99,8 @@ const renderNameAndText = (preNameText, name, postNameText, namePadding) => {
     <table width="100%">
       {preNameHtml}
       <tr>
-        <td className={cls("cert-name")} style={{ padding: namePadding }}>
-          {name}
+        <td id="nus-student-name" className={cls("cert-name")} style={{ padding: namePadding }}>
+         {name}
         </td>
       </tr>
       {postNameHtml}
@@ -675,6 +675,19 @@ export class Degree extends Component {
     if (!this.dataFeeder) this.dataFeeder = new DegreeScrollDataFeeder();
   }
 
+  // adjust layout for long name
+  componentDidMount() {
+    const nameEl = document.getElementById("nus-student-name");
+    if (nameEl) {
+        const nameHeight = nameEl.getBoundingClientRect().height;
+        if (nameHeight > 70) {
+            const sigsEl = document.getElementById("nus-degree-sigs");
+            if (sigsEl) 
+                sigsEl.style.marginTop = "-36px";
+        }
+    }
+  }
+
   // main render
   render = () => (
     <div className={cls("nus-degree")}>
@@ -709,7 +722,11 @@ export class Degree extends Component {
                 <td>{this.dataFeeder.spaceBeforeSig}</td>
               </tr>
               <tr>
-                <td>{this.dataFeeder.signature}</td>
+                <td>
+                  <div id="nus-degree-sigs">
+                    {this.dataFeeder.signature}
+                  </div>
+                </td>
               </tr>
             </tbody>
           </table>

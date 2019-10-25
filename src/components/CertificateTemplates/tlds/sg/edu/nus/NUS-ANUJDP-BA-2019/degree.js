@@ -59,7 +59,7 @@ const constructPreNameText = degreeTitle => {
 const getMarginTopOfSigs = degreeTitle => (
   (degreeTitle.toUpperCase() === "Bachelor of Arts".toUpperCase() ||
    degreeTitle.toUpperCase() === "Bachelor of Science".toUpperCase())
-  ?"-1cm"
+  ?"-1.7cm"
   :""
 );
 
