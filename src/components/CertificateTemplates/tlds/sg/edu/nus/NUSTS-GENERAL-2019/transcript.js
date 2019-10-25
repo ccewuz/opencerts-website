@@ -231,12 +231,12 @@ class TranscriptCreditTransfer {
       const isAPC = transferData.orgId === "E0000002430";
       if (
         transferData.sourceType === "I" &&
-        (!isCDP || (isCDP && isNUSAPCTest && isAPC))
+        (!isCDP || (isCDP && !isNUSAPCTest && !isAPC))
       ) {
         let title;
         if (transferData.sourceCareer) {
           title = `CREDITS RECOGNISED (COMPLETED MODULES FROM ${
-            transferData.sourceCareer
+            transferData.sourceCareer.toUpperCase()
           } CAREER)`;
         } else if (!isMedDen) {
           title = "CREDITS RECOGNISED (COMPLETED MODULES FROM OTHER PROGRAMME)";
