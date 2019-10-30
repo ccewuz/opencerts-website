@@ -102,7 +102,7 @@ class TranscriptCreditTransfer {
         else if (transferData.sourceType === "I") internal = true;
         if (internal && external) break;
       }
-      if (this.termIdx === 0) {
+      if (isFirstTerm(this.termIdx)) {
         // only print in 1st term
         if (external) {
           // external transfer title
@@ -119,7 +119,7 @@ class TranscriptCreditTransfer {
       }
       this.renderIntTrfDetail();
       if (isMedDen) this.renderFormOfStudy();
-      if (this.termIdx !== 0) {
+      if (!isFirstTerm(this.termIdx)) {
         // from 2nd term onward
         this.renderTrfFromExtOrg();
       }
@@ -710,6 +710,9 @@ class TranscriptTermRemarks {
   }
 }
 
+// check whether a term is first term
+const isFirstTerm = termIdx => firstTermIdxes.indexOf(termIdx) >= 0;
+
 // translate module information
 const translateModule = module => {
   const translated = {};
@@ -773,10 +776,18 @@ const getEnrolmentModules = (transcriptData, semester, reportNo) => {
 
 // construct a JSON of transcript data with nested structure.
 // The returned JSON will be the data source of TranscriptTermData
+const firstTermIdxes = [];
 const translateTranscriptTermData = dataSource => {
   if (!dataSource.transcriptRaw)
     dataSource.transcriptRaw = dataSource.transcript;
-  dataSource.additionalData.transcriptGroup.forEach(term => {
+  // find first term(s). Two for CDP and one for others
+  let currentReportNo = 0;
+  dataSource.additionalData.transcriptGroup.forEach((term, termIdx) => {
+    if (currentReportNo !== term.reportNo) {
+        currentReportNo = term.reportNo;
+        firstTermIdxes.push(termIdx);
+    }
+    // group credit transfers by term
     if (term.creditTransfer)
       term.creditTransfer.forEach(transfer => {
         transfer.details = getCreditTransferDetails(
@@ -786,6 +797,7 @@ const translateTranscriptTermData = dataSource => {
           transfer.transferSeq
         );
       });
+    // group enrolmet data by term
     const enrolmentModules = getEnrolmentModules(
       dataSource.transcriptRaw,
       term.name,
