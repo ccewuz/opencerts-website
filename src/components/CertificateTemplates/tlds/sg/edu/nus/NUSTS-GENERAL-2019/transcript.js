@@ -113,7 +113,8 @@ class TranscriptCreditTransfer {
           // internal APC
           this.renderIntAPC();
         }
-      } else {
+      } 
+      if (isCDP || !isFirstTerm(this.termIdx)) {
         // only print for 2nd term onward
         this.renderIntTrfSummary();
       }
