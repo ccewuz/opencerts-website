@@ -197,8 +197,9 @@ class TranscriptCreditTransfer {
           title =
             "CREDITS RECOGNISED ON ADMISSION (NUS MODULES COMPLETED PRIOR TO CURRENT PROGRAMME):";
         } else if (!isNUSAPCTest && !isAPC) {
-          title =
-            "CREDITS RECOGNISED ON ADMISSION (NUS MODULES COMPLETED PRIOR TO CURRENT PROGRAMME):";
+            if (!isCDP || transferData.reportNo === 1)
+              title =
+                "CREDITS RECOGNISED ON ADMISSION (NUS MODULES COMPLETED PRIOR TO CURRENT PROGRAMME):";
         } else if (isNUSAPCTest) {
           title =
             "AWARDED ADVANCED PLACEMENT CREDITS FOR PASSING THE PLACEMENT TEST(S) CONDUCTED BY NUS";
@@ -206,21 +207,23 @@ class TranscriptCreditTransfer {
           // isAPC === true
           title = "AWARDED ADVANCED PLACEMENT CREDITS";
         }
-        const grade = isNUSAPCTest || isAPC ? "-" : "";
-        const credits =
-          transferData.creditsNoGPA !== 0
-            ? transferData.creditsNoGPA.toFixed(2)
-            : "";
-        this.dataFeeder.push(
-          "ts-term-trf-intapc",
-          <Fragment>
-            <td colSpan="2" className={cls("ts-termrem")}>
-              {title}
-            </td>
-            <td className={cls("ts-grade")}>{grade}</td>
-            <td className={cls("ts-credits")}>{credits}</td>
-          </Fragment>
-        );
+        if (title) {
+          const grade = isNUSAPCTest || isAPC ? "-" : "";
+          const credits =
+            transferData.creditsNoGPA !== 0
+              ? transferData.creditsNoGPA.toFixed(2)
+              : "";
+          this.dataFeeder.push(
+            "ts-term-trf-intapc",
+            <Fragment>
+              <td colSpan="2" className={cls("ts-termrem")}>
+                {title}
+              </td>
+              <td className={cls("ts-grade")}>{grade}</td>
+              <td className={cls("ts-credits")}>{credits}</td>
+            </Fragment>
+          );
+        }
       }
     });
   }
