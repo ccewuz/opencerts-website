@@ -108,7 +108,7 @@
       "logo": "/static/images/SMU_logo.png",
       "id": "smu-registry"
     },
-    "0x51964385265eff73875a226aBf6fa20b0aAE4a6f": {
+    "0xA204F16717fbF580d6A0535b58063fB4fce969fF": {
       "name": "National University of Singapore",
       "displayCard": true,
       "website": "http://www.nus.edu.sg/",
@@ -134,6 +134,15 @@
       "phone": "+65 6248 9215",
       "logo": "/static/images/SUSS_logo.png",
       "id": "suss-registry"
+    },
+    "0x9cf976dc45bb5a9336238759e89051E7b09e016b": {
+      "name": "National Institute of Early Childhood Development",
+      "displayCard": true,    
+      "website": "https://www.niec.edu.sg/",
+      "email": "",
+      "phone": "+65 6332 0668",
+      "logo": "/static/images/NIEC_logo.png",
+      "id": "niec-registry"
     },
     "0xb3c1404732585ddEB837Af28eBdAec504ed8Ba04": {
       "name": "ROPSTEN: Singapore Management University",
@@ -201,6 +210,10 @@
     },
     "0x46cf931c320ce7277753dbb15567dD684404e36C": {
       "name": "ROPSTEN: Singapore University of Social Sciences",
+      "displayCard": false
+    },
+    "0x92b2350E3617e002ADEfDd1AFb7B5a9d69a7a026": {
+      "name": "ROPSTEN: National Institute of Early Childhood Development",
       "displayCard": false
     }
   }
